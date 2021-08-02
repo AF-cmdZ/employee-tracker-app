@@ -12,8 +12,4 @@ const connection = mysql.createConnection({
   database: "employees_db",
 });
 
-connection.connect((err) => {
-  if (err) throw err;
-});
-
 module.exports = connection;
