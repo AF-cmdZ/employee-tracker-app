@@ -24,7 +24,27 @@ const questions = {
     ],
     addNewRole: [
         {
-            
-        }
-    ]
-}
+            name: "title",
+            type: "input",
+            message: "What is the title of the new role?",   
+        },
+        {
+            name: "salary",
+            type: "number",
+            message: "What is the new salary of the new role?",
+        },
+        {
+            name: "departmentId",
+            type: "number",
+            message: "Department Id for new role?",
+        },
+    ],
+    addDepartmentName: [
+        {
+            name: "newDept",
+            type: "input",
+            message: "What is the name of the department?",
+        },
+    ],
+};
+module.exports = questions;
