@@ -1,3 +1,4 @@
+// imports
 import cTable from "console.table";
 import { config } from "dotenv";
 import prompt from "inquirer";
@@ -7,14 +8,21 @@ const inquirer = require("inquirer");
 const figlet = require("figlet");
 const cTable = require("console.table");
 
+// variables
+// empty array variables to hold data later on
+let listEmploy = [];
+let listRole = [];
+let listDept = [];
+
 // Setup my import variables so they dont delete.
 // THIS IS TEMPORARY
-console.log(connection);
+console.log(listEmploy);
+console.log(listRole);
+console.log(listDept);
 console.log(prompt);
 console.log(cTable);
 console.log(mysql);
 console.log(inquirer);
-console.log(figlet);
 
 // END TEMP SECTION
 config();
@@ -33,4 +41,6 @@ connection.connect((err) => {
     );
     startProgram();
   });
+
+//   Start of program 
 
