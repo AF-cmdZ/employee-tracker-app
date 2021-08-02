@@ -35,5 +35,12 @@ module.exports = {
             cb(results);
         });
     },
-    viewAllDepartments:
+    viewAllDepartments: function (cb) {
+        connection.query("SELECT * FROM department", (err, results) => {
+        if (err) throw err;
+        console.table(results);
+        cb(results);
+        });
+    },
+    
 }
