@@ -28,5 +28,12 @@ module.exports = {
             }
         );
     },
-    viewAllRoles:
+    viewAllRoles: function (cb) {
+        connection.query("SELECT * FROM role", (err, results) => {
+            if (err) throw err;
+            console.table(results);
+            cb(results);
+        });
+    },
+    viewAllDepartments:
 }
