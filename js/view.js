@@ -1,4 +1,5 @@
 import { config } from "dotenv";
+import inquirer from "inquirer";
 const mysql = require("mysql2");
 import prompt from "inquirer";
 import connection from "./config/connection.js";
@@ -42,5 +43,31 @@ module.exports = {
         cb(results);
         });
     },
-    
-}
+    viewDepartmentBudget: function (dList, cb) {
+        inquirer.prompt([
+            {
+                name: "currDept",
+                type: "list",
+                choices: dlist;
+                message: "Select a department:",
+            },
+        ])
+        .then((answers) => {
+            let dP = answers.currDept.split(" ");
+            let dp = dP[1];
+
+            connection.query(
+                'SELECT SUM(role.salary) AS Total, department.name as Department\
+                    FROM employee as employee INNER JOIN role as role on employee.role_id = role.id\
+                    INNER JOIN department as department ON role.department_id = department.id\
+                    LEFT JOIN employee as manager on employee.manager_id = manager.id where department.name = ?',
+                    [dp],
+                    (err, results) => {
+                        if (err) throw err;
+                        console.table(results);
+                        cb(results);
+                    }
+            );
+        });
+    },
+};
