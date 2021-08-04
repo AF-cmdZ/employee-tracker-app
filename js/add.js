@@ -37,4 +37,13 @@ module.exports = {
             }
         );
     },
+    addEmp: function (rTitle, eManager, cb) {
+        inquirer.prompt([
+            {
+                name: "firstName",
+                type: "input",
+                message: "Enter first name:",
+            },
+        ])
+    }
 };
