@@ -26,7 +26,7 @@ module.exports = {
            },
        ])
        .then((answers) => {
-        //    Store the id's for later use
+        //    Store the ids for later use
         let employeeId = answers.selectedEmployee.split(" ");
         let eId = employeeId[0];
         let roleId = answers.newRole.split(" ");
@@ -43,5 +43,43 @@ module.exports = {
         );
        });
    },
-   
+   updateEmpManager: function (empName, mName, cb) {
+       inquirer.prompt([
+           {
+               name: "selectEmployee",
+               type: "list",
+               choices: empName,
+               message: "Choose the employee that needs a manager update:",
+           },
+           {
+               name: "selectEmployee",
+               type: "list",
+               choices: mName,
+               message: "Choose a new manager for the selected employee",
+           },
+       ])
+       .then((answers) =>{
+        //    Store the ids for later use
+        let employeeId = answers.selectedEmployee.split(" ");
+        let managerId = answers.selectManager.split(" ");
+        let mN = answers.selectManager;
+        let eId = employeeId[0];
+        let mId = managerId[0];
+
+        if (mN === "no manager") {
+            mN = null;
+        } else {
+            mn = mId;
+        }
+        connection.query(
+            "UPDATE employee SET manager_id = ? WHERE id = ?;",
+            [mN, eId],
+            (err, results) => {
+                if (err) throw err;
+                console.log("New manager has been updated!");
+                cb(results);
+            }
+        );
+       });
+   },
 };
