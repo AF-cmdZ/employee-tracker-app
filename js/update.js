@@ -25,5 +25,23 @@ module.exports = {
                message: "Choose the new role for the selected employee:",
            },
        ])
-   } 
+       .then((answers) => {
+        //    Store the id's for later use
+        let employeeId = answers.selectedEmployee.split(" ");
+        let eId = employeeId[0];
+        let roleId = answers.newRole.split(" ");
+        let rId = roleId[0];
+
+        connection.query(
+            "UPDATE employee SET role_id = ? WHERE id = ?;",
+            [rId, eId],
+            (err, results) => {
+                if (err) throw err;
+                console.log("New role has been updated!");
+                cb(results);
+            }
+        );
+       });
+   },
+   
 };
