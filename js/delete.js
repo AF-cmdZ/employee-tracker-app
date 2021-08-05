@@ -18,8 +18,44 @@ module.exports {
             let eID = employeeID[0];
 
             connection.query(
-                "DELETE FROM employee W
-            )
-        })
+                "DELETE FROM employee WHERE id = ?;",
+                [eID],
+                (err, results) => {
+                    if (err) throw err;
+                    console.log("Employee has been deleted.");
+                    cb(results);
+                }
+            );
+        });
     }
+    {
+        deleteRole: function (rrName, cb) {
+            inquirer.prompt([
+                {
+                    name: "selectR",
+                    type: "list",
+                    choices: rrName,
+                    message: "Select the role to be deleted:",
+                },
+            ])
+            .then((answers) => {
+                let roleId = answers.selectR.split(" ");
+                let rID = roleId[0];
+
+                connection.query(
+                    "DELETE FROM role WHERE id = ?;",
+                    [rID],
+                    (err, results) => {
+                        if (err) throw err;
+                        console.log("Role has been deleted.");
+                        cb(results);
+                    }
+                );
+            });
+        }
+        {
+            delet
+        }   
+    }
+
 };
