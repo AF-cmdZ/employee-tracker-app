@@ -92,8 +92,95 @@ const startProgram = async () => {
                     );
                 });
                 break;
+            case "Add employee":
+                let rTitle = [];
+                let eManager = [];
                 
+                listRole.forEach(({ id, title }) => {
+                    rTitle.push(id + " " + title);
+                });
+                listEmploy.forEach(({ id, first_name, last_name }) => {
+                    eManager.push(id + " " + first_name + " " + last_name);
+                });
+                eManager.push("none");
+
+                addEmp(rTitle, eManager, () => {
+                    startProgram();
+                });
+                break;
+            case "Update employee role":
+                let eName = [];
+                let rName = [];
+
+                listEmploy.forEach(({ id, first_name, last_name }) => {
+                    eName.push(id + " " + first_name + " " + last_name);
+                });
+                listRole.forEach(({ id, title }) => {
+                    rName.push(id + " " + title);
+                });
+                updateEmpRole(eName, rName, () => {
+                    startProgram();
+                });
+                break;
+            case "Update employee manager":
+                let empName = [];
+                let mName = [];
+
+                listEmploy.forEach(({ id, first_name, last_name }) => {
+                    empName.push(id + " " + first_name + last_name);
+                    mName.push(id + " " + first_name + " " + last_name);
+                });
+                mName.push("no manager");
+
+                updateEmpManager(empName, mName, () => {
+                    startProgram();
+                });
+                break;
+            case "Delete employee":
+                let eeName = [];
+                
+                listEmploy.forEach(({ id, first_name, last_name }) => {
+                    eeName.push(id + " " + first_name + " " + last_name);
+                });
+                deleteEmp(eeName, () => {
+                    startProgram();
+                });
+                break;
+            case "Delete role":
+                let rrName = [];
+
+                listRole.forEach(({ id, title }) => {
+                    rrName.push(id + " " + title);
+                });
+                deleteRole(rrName, () => {
+                    startProgram();
+                });
+                break;
+            case "Delete department":
+                let dName = [];
+
+                listDept.forEach(({ id, name }) => {
+                    dName.push(id + " " + name);
+                });
+                deleteDept(dName, () => {
+                    startProgram();
+                });
+                break;
+            case "View budget by department":
+                let dList = [];
+
+                listDept.forEach(({ id, name }) => {
+                    dList.push(id + " " + name);
+                });
+                viewDepartmentBudget(dList, () => {
+                    startProgram();
+                });
+                break;
+            default:
+                connection: end();
+                process.exit(0);
+                break;
         }
-    }
-}
+    });
+};
 
