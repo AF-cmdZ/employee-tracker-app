@@ -20,17 +20,7 @@ let listEmploy = [];
 let listRole = [];
 let listDept = [];
 
-// Setup my import variables so they dont delete.
-// THIS IS TEMPORARY
-console.log(listEmploy);
-console.log(listRole);
-console.log(listDept);
-console.log(prompt);
-console.log(cTable);
-console.log(mysql);
-console.log(inquirer);
 
-// END TEMP SECTION
 config();
 
 connection.connect((err) => {
