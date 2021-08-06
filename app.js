@@ -184,3 +184,14 @@ const startProgram = async () => {
     });
 };
 
+// Functions to retrieve the data to store in the vars
+const getEmployees = () => {
+    connection.query("SELECT * FROM employee;", (err, results) => {
+        if (err) throw err;
+        results.forEach(({ id, first_name, last_name, role_id, manager_id }) => {
+            listEmploy.push({ id, first_name, last_name, role_id, manager_id });
+        });
+    });
+    return listEmploy;
+};
+
