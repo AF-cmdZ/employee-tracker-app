@@ -195,3 +195,22 @@ const getEmployees = () => {
     return listEmploy;
 };
 
+const getRoles = () => {
+    connection.query("SELECT * FROM role;", (err, results) => {
+        if (err) throw err;
+        results.forEach(({ id, title, salary, department_id }) => {
+            listRole.push({ id, title, salary, department_id });
+        });
+    });
+    return listRole;
+};
+
+const getDept = () => {
+    connection.query("SELECT * FROM department;", (err, results) => {
+        if (err) throw err;
+        results.forEach(({ id, name }) => {
+            listDept.push({ id, name }); 
+        });
+    });
+    return listDept;
+}
