@@ -49,4 +49,51 @@ connection.connect((err) => {
   });
 
 //   Start of program 
+const startProgram = async () => {
+    // populate empty array vars with data
+    listEmploy = await getEmployees();
+    listRole = await getRoles();
+    listDept = await getDept();
+
+    inquirer.prompt(questions.startMenu).then(({ action }) => {
+        console.log(action);
+        switch (action) {
+            case "View all employees":
+                view.viewAllEmployees(() => {
+                    startProgram();
+                });
+                break;
+            case "View all roles":
+                view.viewAllRoles(() => {
+                    startProgram();
+                });
+                break;
+            case "View all departments":
+                view.viewAllDepartments(() => {
+                    startProgram();
+                });
+                break;
+            case "Add department":
+                inquirer.prompt(questions.addDepartmentName).then(({ newDept }) => {
+                    add.addDepartment(newDept, () => {
+                        startProgram();
+                });
+            });
+                break;
+            case "Add role":
+                inquirer.prompt(questions.addNewRole).then((answers) => {
+                    add.addRole(
+                        answers.title,
+                        answers.salary,
+                        answers.departmentId,
+                        () => {
+                            startProgram();
+                        }
+                    );
+                });
+                break;
+                
+        }
+    }
+}
 
