@@ -5,7 +5,7 @@ const mysql = require("mysql2");
 const inquirer = require("inquirer");
 const figlet = require("figlet");
 const cTable = require("console.table");
-const connection = require ("./config/connection");
+const connection = require ("/config/connection.js");
 
 
 const view = require("./js/view.js");
@@ -15,7 +15,6 @@ const { updateEmpRole, updateEmpManager } = require("./js/update.js");
 const { addEmp } = require("./js/add.js");
 const { deleteEmp, deleteRole, deleteDept } = require("./js/delete");
 
-console.log(connection);
 
 // variables
 // empty array variables to hold data later on
