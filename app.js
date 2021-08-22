@@ -175,7 +175,7 @@ const startProgram = async () => {
                 });
                 break;
             default:
-                connection: end();
+                connection.end();
                 process.exit(0);
                 break;
         }
