@@ -5,7 +5,6 @@ const mysql = require("mysql2");
 const inquirer = require("inquirer");
 const figlet = require("figlet");
 const cTable = require("console.table");
-const connection = require ("/config/connection.js");
 
 
 const view = require("./js/view.js");
@@ -15,6 +14,29 @@ const { updateEmpRole, updateEmpManager } = require("./js/update.js");
 const { addEmp } = require("./js/add.js");
 const { deleteEmp, deleteRole, deleteDept } = require("./js/delete");
 
+const connection = mysql.createConnection({
+    host: "localhost",
+    port: 3306,
+    user: "root",
+    password: process.env.DB_PASS,
+    database: "employees_db",
+  });
+  
+  // connect to the mysql server and database
+  connection.connect((err) => {
+      if (err) throw err;
+      console.log(
+        // Start Banner! 
+        figlet.textSync("Employee Manager", {
+            font: "Standard",
+            horizontalLayout: "default",
+            verticalLayout: "default",
+            width: 60, 
+            whitespaceBreak: true,
+        })
+      );
+      startProgram();
+});
 
 // variables
 // empty array variables to hold data later on
@@ -22,15 +44,6 @@ let listEmploy = [];
 let listRole = [];
 let listDept = [];
 
-
-// Start Banner! 
-figlet.textSync("Employee Manager", {
-    font: "Standard",
-    horizontalLayout: "default",
-    verticalLayout: "default",
-    width: 60, 
-    whitespaceBreak: true,
-});
 
 //   Start of program 
 const startProgram = async () => {
@@ -167,8 +180,6 @@ const startProgram = async () => {
         }
     });
 };
-
-startProgram();
 
 // Functions to retrieve the data to store in the vars
 const getEmployees = () => {
