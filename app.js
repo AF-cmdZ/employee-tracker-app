@@ -9,9 +9,10 @@ const cTable = require("console.table");
 
 const view = require("./js/view.js");
 const questions = require("./js/questions.js");
+const add = require("./js/add.js");
 const { viewDepartmentBudget } = require("./js/view.js");
 const { updateEmpRole, updateEmpManager } = require("./js/update.js");
-const { addEmp } = require("./js/add.js");
+const { addDepartment, addEmp, addRole } = require("./js/add.js");
 const { deleteEmp, deleteRole, deleteDept } = require("./js/delete");
 
 const connection = mysql.createConnection({
