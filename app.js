@@ -1,11 +1,11 @@
 // imports
 const { config } = require("dotenv");
 const prompt = require ("inquirer");
-const connection = require ("./config/connection.js");
 const mysql = require("mysql2");
 const inquirer = require("inquirer");
 const figlet = require("figlet");
 const cTable = require("console.table");
+const connection = require ("./config/connection.js");
 const view = require("./js/view.js");
 const questions = require("./js/questions.js");
 const { viewDepartmentBudget } = require("./js/view.js");
