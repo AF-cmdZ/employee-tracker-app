@@ -1,5 +1,4 @@
 // imports
-const cTable = require("console.table");
 const { config } = require("dotenv");
 const prompt = require ("inquirer");
 const connection = require ("./config/connection.js");
