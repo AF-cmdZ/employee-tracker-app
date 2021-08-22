@@ -1,5 +1,5 @@
 // get the client
-import { config } from "dotenv";
+const { config } = require ("dotenv");
 const mysql = require("mysql2");
 
 config();
