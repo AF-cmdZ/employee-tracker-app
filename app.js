@@ -21,22 +21,14 @@ let listRole = [];
 let listDept = [];
 
 
-config();
-
-connection.connect((err) => {
-    if (err) throw err;
-    console.log(
-        // Start Banner! 
-        figlet.textSync("Employee Manager", {
-            font: "Standard",
-            horizontalLayout: "default",
-            verticalLayout: "default",
-            width: 60, 
-            whitespaceBreak: true,
-        })
-    );
-    startProgram();
-  });
+// Start Banner! 
+figlet.textSync("Employee Manager", {
+    font: "Standard",
+    horizontalLayout: "default",
+    verticalLayout: "default",
+    width: 60, 
+    whitespaceBreak: true,
+});
 
 //   Start of program 
 const startProgram = async () => {
@@ -174,6 +166,8 @@ const startProgram = async () => {
     });
 };
 
+startProgram();
+
 // Functions to retrieve the data to store in the vars
 const getEmployees = () => {
     connection.query("SELECT * FROM employee;", (err, results) => {
@@ -203,4 +197,4 @@ const getDept = () => {
         });
     });
     return listDept;
-}
+};
