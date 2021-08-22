@@ -1,8 +1,8 @@
 // imports
-import cTable from "console.table";
-import { config } from "dotenv";
-import prompt from "inquirer";
-import connection from "./config/connection.js";
+const cTable = require("console.table");
+const { config } = require("dotenv");
+const prompt = require ("inquirer");
+const connection = require ("./config/connection.js");
 const mysql = require("mysql2");
 const inquirer = require("inquirer");
 const figlet = require("figlet");
