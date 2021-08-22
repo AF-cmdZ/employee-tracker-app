@@ -28,7 +28,7 @@ module.exports = {
        ])
        .then((answers) => {
         //    Store the ids for later use
-        let employeeId = answers.selectedEmployee.split(" ");
+        let employeeId = answers.selectEmployee.split(" ");
         let eId = employeeId[0];
         let roleId = answers.newRole.split(" ");
         let rId = roleId[0];
@@ -61,7 +61,7 @@ module.exports = {
        ])
        .then((answers) =>{
         //    Store the ids for later use
-        let employeeId = answers.selectedEmployee.split(" ");
+        let employeeId = answers.selectEmployee.split(" ");
         let managerId = answers.selectManager.split(" ");
         let mN = answers.selectManager;
         let eId = employeeId[0];
