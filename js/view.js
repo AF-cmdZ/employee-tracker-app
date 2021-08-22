@@ -1,7 +1,7 @@
-import inquirer from "inquirer";
+const inquirer = require ("inquirer");
 const mysql = require("mysql2");
-import prompt from "inquirer";
-import connection from "./config/connection.js";
+const prompt = require ("inquirer");
+const connection = require ("./config/connection.js");
 const cTable = require("console.table");
 
 

@@ -1,6 +1,6 @@
-import inquirer from "inquirer";
+const inquirer = require ("inquirer");
 const mysql = require("mysql2");
-import connection from "./config/connection.js";
+const connection = require ("./config/connection.js");
 
 module.exports = {
     addDepartment: function (newDept, cb) {
