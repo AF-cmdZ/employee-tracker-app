@@ -53,7 +53,7 @@ module.exports = {
                message: "Choose the employee that needs a manager update:",
            },
            {
-               name: "selectEmployee",
+               name: "selectManager",
                type: "list",
                choices: mName,
                message: "Choose a new manager for the selected employee",
