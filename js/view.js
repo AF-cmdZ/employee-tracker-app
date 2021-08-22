@@ -1,9 +1,8 @@
 const inquirer = require ("inquirer");
 const mysql = require("mysql2");
 const prompt = require ("inquirer");
-const connection = require ("./config/connection.js");
 const cTable = require("console.table");
-
+const connection = require ("./config/connection.js");
 
 module.exports = {
     viewAllEmployees: function (cb) {
