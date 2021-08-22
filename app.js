@@ -1,5 +1,5 @@
 // imports
-const { config } = require("dotenv");
+const config = require("dotenv").config();
 const prompt = require ("inquirer");
 const mysql = require("mysql2");
 const inquirer = require("inquirer");

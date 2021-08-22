@@ -1,4 +1,4 @@
-const { config } = require("dotenv");
+const config = require("dotenv").config();
 const inquirer = require ("inquirer");
 const mysql = require("mysql2");
 
